@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O título será atualizado via JS -->
+    <title>Alan Matoso - IT Professional</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            background-image: linear-gradient(rgba(10, 25, 47, 0.97), rgba(10, 25, 47, 0.97)), url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        .text-accent { color: #64ffda; }
+        .bg-navy-light { background-color: #112240; }
+        .btn-primary { @apply px-6 py-3 border border-accent text-accent rounded-md font-medium hover:bg-accent/10 transition-colors duration-300; }
+        h1, h2, h3, h4 { color: #e6f1ff; font-weight: 700; }
+        .nav-link { @apply relative after:absolute after:bg-accent after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300; }
+        .lang-switcher button { @apply text-slate-300 hover:text-accent transition-colors; }
+        .lang-switcher button.active { @apply text-accent font-bold; }
+        .profile-image-wrapper {
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-image-wrapper:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-navy-light/80 backdrop-blur-sm shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-end items-center">
+            <div class="hidden lg:flex space-x-5 items-center">
+                <a href="#about" class="nav-link text-sm" data-translate-key="nav_about">Profile</a>
+                <a href="#experience" class="nav-link text-sm" data-translate-key="nav_experience">Experience</a>
+                <a href="#skills" class="nav-link text-sm" data-translate-key="nav_skills">Skills</a>
+                <a href="#education" class="nav-link text-sm" data-translate-key="nav_education">Education</a>
+                <a href="#certifications" class="nav-link text-sm" data-translate-key="nav_certifications">Certificates</a>
+                <a href="#contact" class="btn-primary !px-4 !py-2" data-translate-key="nav_contact">Contact</a>
+                <div class="lang-switcher flex items-center space-x-2 border-l border-slate-600 pl-4">
+                    <button id="lang-en" class="active">EN</button>
+                    <span>/</span>
+                    <button id="lang-pt">PT</button>
+                </div>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-light">
+            <a href="#about" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_about_mobile">Profile</a>
+            <a href="#experience" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_experience_mobile">Experience</a>
+            <a href="#skills" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_skills_mobile">Skills</a>
+            <a href="#education" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_education_mobile">Education</a>
+            <a href="#certifications" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_certifications_mobile">Certificates</a>
+            <a href="#contact" class="block py-2 px-6 text-lg hover:bg-accent/10" data-translate-key="nav_contact_mobile">Contact</a>
+            <div class="lang-switcher flex items-center space-x-2 p-6 justify-center">
+                <button id="lang-en-mobile" class="active">EN</button>
+                <span>/</span>
+                <button id="lang-pt-mobile">PT</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-32">
+
+        <!-- Hero Section -->
+        <section id="hero" class="flex flex-col-reverse md:flex-row items-center justify-center md:justify-between min-h-[70vh]">
+            <div class="md:w-3/5 text-center md:text-left">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black mb-4">Alan Matoso.</h1>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-400 mb-8" data-translate-key="hero_subtitle">IT Professional & Software Engineer.</h2>
+                <a href="#contact" class="btn-primary text-xl" data-translate-key="hero_cta">Get In Touch</a>
+            </div>
+            <div class="md:w-2/5 flex justify-center mb-10 md:mb-0">
+                <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-accent shadow-2xl shadow-accent/20 profile-image-wrapper">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQG49dRi3KSozg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729197349460?e=1758153600&v=beta&t=RPDc4CUzORlJ5SRqc123BWsQp7bKoFgSOux0DK_akho" 
+                         alt="Foto de perfil de Alan Matoso" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x400/112240/64ffda?text=Alan';"
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center">
+                <span class="text-accent mr-4">01.</span> <span data-translate-key="about_title">Professional Profile</span>
+            </h2>
+            <div class="text-lg space-y-4 text-slate-300" data-translate-key="about_text"></div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-16">
+            <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">02.</span> <span data-translate-key="experience_title">Professional Experience</span></h2>
+            <div class="space-y-12">
+                <!-- Job -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 text-slate-400"><p class="font-semibold" data-translate-key="exp1_date"></p></div>
+                    <div class="md:col-span-3 bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="exp1_title"></h3>
+                        <p class="text-lg mb-4">Quality Digital</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300" data-translate-key="exp1_desc"></ul>
+                    </div>
+                </div>
+                <!-- Job -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 text-slate-400"><p class="font-semibold" data-translate-key="exp2_date"></p></div>
+                    <div class="md:col-span-3 bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="exp2_title"></h3>
+                        <p class="text-lg mb-4">Avanade</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300" data-translate-key="exp2_desc"></ul>
+                    </div>
+                </div>
+                <!-- Job -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 text-slate-400"><p class="font-semibold" data-translate-key="exp3_date"></p></div>
+                    <div class="md:col-span-3 bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="exp3_title"></h3>
+                        <p class="text-lg mb-4" data-translate-key="exp3_company"></p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300" data-translate-key="exp3_desc"></ul>
+                    </div>
+                </div>
+                <!-- Job -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 text-slate-400"><p class="font-semibold" data-translate-key="exp4_date"></p></div>
+                    <div class="md:col-span-3 bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="exp4_title"></h3>
+                        <p class="text-lg mb-4">Vectra Consultoria e Serviços</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300" data-translate-key="exp4_desc"></ul>
+                    </div>
+                </div>
+                <!-- Job -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="md:col-span-1 text-slate-400"><p class="font-semibold" data-translate-key="exp5_date"></p></div>
+                    <div class="md:col-span-3 bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="exp5_title"></h3>
+                        <p class="text-lg mb-4">Imobiliária Castro Lima</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300" data-translate-key="exp5_desc"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">03.</span> <span data-translate-key="skills_title">Technical Knowledge</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                <!-- Left Column -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-accent mb-4 flex items-center gap-x-3">
+                            <i class="fa-brands fa-react text-2xl"></i>
+                            <i class="fa-brands fa-js-square text-2xl"></i>
+                            <i class="fa-brands fa-node-js text-2xl"></i>
+                            <span data-translate-key="skills_cat1_title">Programming Languages</span>
+                        </h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300" data-translate-key="skills_list1"></ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-accent mb-4 flex items-center gap-x-3">
+                            <i class="fa-solid fa-store text-2xl"></i>
+                            <span data-translate-key="skills_cat2_title">Tools</span>
+                        </h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300" data-translate-key="skills_list2"></ul>
+                    </div>
+                </div>
+                <!-- Right Column -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-accent mb-4" data-translate-key="skills_cat3_title">Databases</h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300" data-translate-key="skills_list3"></ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-accent mb-4 flex items-center gap-x-3">
+                            <i class="fa-brands fa-git-alt text-2xl"></i>
+                            <i class="fa-brands fa-github text-2xl"></i>
+                            <span data-translate-key="skills_cat4_title">Others</span>
+                        </h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300" data-translate-key="skills_list4"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16">
+            <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">04.</span> <span data-translate-key="education_title">Academic Background</span></h2>
+            <div class="space-y-8">
+                <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-accent" data-translate-key="edu1_title"></h3>
+                    <p class="text-lg mb-1" data-translate-key="edu1_school"></p>
+                    <p class="text-slate-400">2014</p>
+                </div>
+                 <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-accent" data-translate-key="edu2_title"></h3>
+                    <p class="text-lg mb-1" data-translate-key="edu2_school"></p>
+                    <p class="text-slate-400">2010</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-16">
+            <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">05.</span> <span data-translate-key="certifications_title">Courses & Certifications</span></h2>
+            <div class="space-y-10">
+                <div>
+                    <h4 class="text-2xl font-bold text-accent/80 mb-6" data-translate-key="certs_major_title"></h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold text-accent" data-translate-key="cert1_title"></h3>
+                            <p class="text-slate-400" data-translate-key="cert1_date"></p>
+                            <a href="https://hubmaster.app/certificados/exibir/638e0d39083df" target="_blank" class="text-accent hover:underline mt-2 inline-block" data-translate-key="cert_view"></a>
+                        </div>
+                        <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold text-accent" data-translate-key="cert2_title"></h3>
+                            <p class="text-slate-400" data-translate-key="cert2_date"></p>
+                            <a href="https://www.scrum.org/certificates/339918" target="_blank" class="text-accent hover:underline mt-2 inline-block" data-translate-key="cert_view"></a>
+                        </div>
+                        <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold text-accent" data-translate-key="cert3_title"></h3>
+                            <p class="text-lg">AXELOS Global Best Practice</p>
+                            <p class="text-slate-400" data-translate-key="cert3_date"></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold text-accent/80 mb-6" data-translate-key="certs_other_title"></h4>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 columns-1 md:columns-2" data-translate-key="certs_other_list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages & Volunteer Section -->
+        <section id="languages_volunteer" class="py-16">
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">06.</span> <span data-translate-key="languages_title">Languages</span></h2>
+                    <div class="space-y-4">
+                        <div class="bg-navy-light p-4 rounded-lg"><p><b class="text-accent" data-translate-key="lang1_name"></b> <span data-translate-key="lang1_level"></span></p></div>
+                        <div class="bg-navy-light p-4 rounded-lg"><p><b class="text-accent" data-translate-key="lang2_name"></b> <span data-translate-key="lang2_level"></span></p></div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-12"><span class="text-accent mr-4">07.</span> <span data-translate-key="volunteer_title">Volunteer Work</span></h2>
+                    <div class="bg-navy-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold text-accent" data-translate-key="vol_org"></h3>
+                        <p class="text-slate-400 mb-2" data-translate-key="vol_date"></p>
+                        <p class="text-slate-300" data-translate-key="vol_desc"></p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="text-3xl font-bold mb-4"><span class="text-accent mr-4">08.</span> <span data-translate-key="contact_title">Contact</span></h2>
+            <p class="max-w-2xl mx-auto text-lg mb-8" data-translate-key="contact_text"></p>
+            <div id="contact-icons" class="flex justify-center items-center space-x-8">
+                <a href="https://linkedin.com/in/alanmatoso" target="_blank" rel="noopener noreferrer" class="text-accent text-5xl hover:text-white transition-colors" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <button id="phone-btn" class="text-accent text-5xl hover:text-white transition-colors" aria-label="Telefone">
+                    <i class="fa-solid fa-phone"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const translations = {
+                pt: {
+                    title: "Alan Matoso - Profissional de TI",
+                    nav_about: "Perfil",
+                    nav_experience: "Experiência",
+                    nav_skills: "Conhecimentos",
+                    nav_education: "Formação",
+                    nav_certifications: "Certificados",
+                    nav_contact: "Contato",
+                    hero_subtitle: "Profissional de TI & Engenheiro de Software.",
+                    hero_cta: "Entre em Contato",
+                    about_title: "Perfil Profissional",
+                    about_text: `<p>Profissional de TI com 14 anos de experiência em diversas funções, incluindo Gerente de TI, Analista Desenvolvedor e Desenvolvedor Consultor. Apaixonado por tecnologia, aprendo rápido, gosto de compartilhar conhecimento e de trabalhar em equipe, além de liderar mudanças.</p>`,
+                    experience_title: "Experiência Profissional",
+                    exp1_date: "Mar 2021 - Presente",
+                    exp1_title: "Engenheiro de Software",
+                    exp1_desc: `<li>Implementações de lojas VTEX CMS e VTEX IO em mais de 5 projetos e 20 lojas.</li><li>Desenvolvimento de Aplicativos Personalizados.</li><li>Implementações em HTML, CSS, SASS, JS, jQuery, React, TypeScript, GraphQL, Node, Oracle SQL.</li><li>Revisão e refatoração de código, performance, SEO.</li><li>Participação na arquitetura de componentes e confecção de documentações.</li><li>Comunicação ativa com clientes e stakeholders, liderança em metodologias ágeis (Kanban, Scrum).</li><li><b>Projetos Atendidos:</b> Grupo Electrolux, Black and Decker, Obramax, PicPay, Grupo Veste.</li>`,
+                    exp2_date: "Abr 2018 - Mar 2021",
+                    exp2_title: "Engenheiro de Software Associado",
+                    exp2_desc: `<li>Suporte a sistemas com Microsoft SQL Server Management Studio.</li><li>Desenvolvimento em OutSystems, criação de funcionalidades e geração de relatórios.</li><li>Desenvolvimento de aplicações API Restful em .Net Core e MVC.</li><li><b>Projetos Atendidos:</b> Qualicorp, Grupo Ser Educacional, O Boticário, SKY.</li>`,
+                    exp3_date: "Set 2017 - Mar 2018",
+                    exp3_title: "Analista",
+                    exp3_company: "Prefeitura do Recife – Secretaria de Educação (SEDUC)",
+                    exp3_desc: `<li>Atualização e melhoria de sistemas de monitoramento de metas.</li><li>Elaboração de sistemas para atualização de planos operacionais.</li><li>Revisão e criação de fluxos de processos de compras.</li>`,
+                    exp4_date: "Dez 2014 - Jul 2017",
+                    exp4_title: "Analista de Desenvolvimento",
+                    exp4_desc: `<li>Gerenciamento proativo da experiência do usuário com CA APM.</li><li>Aplicação das boas práticas de Gestão de Serviços de TI (ITIL).</li><li>Comunicação ativa com clientes e elaboração de relatórios técnicos.</li>`,
+                    exp5_date: "Ago 2009 - Jul 2014",
+                    exp5_title: "Analista de Sistemas",
+                    exp5_desc: `<li>Gestão do setor de TI, contratação de fornecedores.</li><li>Desenvolvimento de sistemas para áreas administrativa e financeira.</li>`,
+                    skills_title: "Conhecimento Técnico",
+                    skills_cat1_title: "Linguagens de Programação",
+                    skills_list1: `<li>JavaScript</li><li>React</li><li>Typescript</li><li>Node.js</li><li>C#</li><li>ASP.NET</li><li>HTML5</li><li>CSS3</li><li>JAVA</li><li>PHP</li>`,
+                    skills_cat2_title: "Ferramentas",
+                    skills_list2: `<li>VTEX IO</li><li>OutSystems</li><li>Adobe AEM</li>`,
+                    skills_cat3_title: "Banco de Dados",
+                    skills_list3: `<li>SQL (Oracle, SQL Server, MySQL)</li><li>Azure Cosmos DB</li><li>MongoDB</li>`,
+                    skills_cat4_title: "Outros",
+                    skills_list4: `<li>CA APM</li><li>ITIL® Foundation</li><li>Scrum Master I (PSM I)</li><li>GIT</li><li>GitHub</li><li>Azure DevOps</li><li>JIRA</li><li>Manutenção de computadores e ativos de rede</li>`,
+                    education_title: "Formação Acadêmica",
+                    edu1_title: "MBA Executivo em Gestão da Tecnologia da Informação",
+                    edu1_school: "Centro de Informática (CIN) - Universidade Federal de Pernambuco (UFPE)",
+                    edu2_title: "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
+                    edu2_school: "UNIBRATEC – IBRATEC Faculdade de Tecnologia",
+                    certifications_title: "Cursos e Certificados",
+                    certs_major_title: "Principais Certificados",
+                    cert1_title: "VTEX IO Developer",
+                    cert1_date: "Dez 2022",
+                    cert2_title: "Scrum Master Profissional I",
+                    cert2_date: "Dez 2018",
+                    cert3_title: "ITIL® Foundation",
+                    cert3_date: "Dez 2016",
+                    cert_view: `Ver credencial <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>`,
+                    certs_other_title: "Outros Cursos Relevantes",
+                    certs_other_list: `<li>How to create enterprise ready applications using NestJS framework (06/2024)</li><li>Storytelling: visão de negócios e desenvolvimento pessoal (07/2023)</li><li>Alinhamento de TI ao negócio: estratégias e desenho de serviços (06/2023)</li><li>HTML5 e CSS3: Suas Páginas WEB e Impulsionando suas Páginas (07/2017)</li><li>Web Design Responsivo (07/2017)</li><li>MongoDB: Alternativa aos Bancos Relacionais Tradicionais (05/2017)</li><li>GIT: Controle e Compartilhe seu Código (04/2017)</li><li>SQLServer: Consultas Poderosas (03/2017)</li><li>HTTP: Entendendo a Web (02/2017)</li><li>Pensamento Visual como Ferramenta de Inovação (02/2017)</li><li>Modelagem de Dados e SQL no Oracle (12/2011)</li><li>Modelagem de Dados PL/SQL em Oracle (01/2011)</li><li>Programa Estudantes para Negócios – S2B (11/2008)</li>`,
+                    languages_title: "Idiomas",
+                    lang1_name: "Inglês:",
+                    lang1_level: "Avançado (C2)",
+                    lang2_name: "Espanhol:",
+                    lang2_level: "Básico",
+                    volunteer_title: "Trabalho Voluntário",
+                    vol_org: "IPETI – Instituto de Pesquisas e Estudos da Terceira Idade",
+                    vol_date: "Jan 2008 - Dez 2009",
+                    vol_desc: "Elaboração de site e software de apoio para empréstimo de livros e filmes.",
+                    contact_title: "Contato",
+                    contact_text: "Estou sempre aberto a avaliar novas oportunidades e colaborações.",
+                    footer_text: "Desenvolvido por Alan Matoso."
+                },
+                en: {
+                    title: "Alan Matoso - IT Professional",
+                    nav_about: "Profile",
+                    nav_experience: "Experience",
+                    nav_skills: "Skills",
+                    nav_education: "Education",
+                    nav_certifications: "Certificates",
+                    nav_contact: "Contact",
+                    hero_subtitle: "IT Professional & Software Engineer.",
+                    hero_cta: "Get In Touch",
+                    about_title: "Professional Profile",
+                    about_text: `<p>IT professional with 14 years of experience in various roles, including IT Manager, Developer Analyst, and Consultant Developer. Passionate about technology, I am a fast learner, enjoy sharing knowledge and working in a team, as well as leading change.</p>`,
+                    experience_title: "Professional Experience",
+                    exp1_date: "Mar 2021 - Present",
+                    exp1_title: "Software Engineer",
+                    exp1_desc: `<li>VTEX CMS and VTEX IO store implementations in over 5 projects and 20 stores.</li><li>Custom Application Development.</li><li>Implementations in HTML, CSS, SASS, JS, jQuery, React, TypeScript, GraphQL, Node, Oracle SQL.</li><li>Code review and refactoring, performance, SEO.</li><li>Participation in component architecture and documentation creation.</li><li>Active communication with clients and stakeholders, leadership in agile methodologies (Kanban, Scrum).</li><li><b>Projects for:</b> Electrolux Group, Black and Decker, Obramax, PicPay, Veste Group.</li>`,
+                    exp2_date: "Apr 2018 - Mar 2021",
+                    exp2_title: "Associate Software Engineer",
+                    exp2_desc: `<li>System support with Microsoft SQL Server Management Studio.</li><li>Development in OutSystems, creating functionalities and generating reports.</li><li>Development of Restful API applications in .Net Core and MVC.</li><li><b>Projects for:</b> Qualicorp, Ser Educacional Group, O Boticário, SKY.</li>`,
+                    exp3_date: "Sep 2017 - Mar 2018",
+                    exp3_title: "Analyst",
+                    exp3_company: "Recife City Hall – Secretariat of Education (SEDUC)",
+                    exp3_desc: `<li>Updating and improving goal monitoring systems.</li><li>Developing systems for updating operational plans.</li><li>Reviewing and creating procurement process flows.</li>`,
+                    exp4_date: "Dec 2014 - Jul 2017",
+                    exp4_title: "Development Analyst",
+                    exp4_desc: `<li>Proactive management of user experience with CA APM.</li><li>Application of IT Service Management best practices (ITIL).</li><li>Active communication with clients and preparation of technical reports.</li>`,
+                    exp5_date: "Aug 2009 - Jul 2014",
+                    exp5_title: "Systems Analyst",
+                    exp5_desc: `<li>Management of the IT department, hiring suppliers.</li><li>Development of systems for administrative and financial areas.</li>`,
+                    skills_title: "Technical Knowledge",
+                    skills_cat1_title: "Programming Languages",
+                    skills_list1: `<li>JavaScript</li><li>React</li><li>Typescript</li><li>Node.js</li><li>C#</li><li>ASP.NET</li><li>HTML5</li><li>CSS3</li><li>JAVA</li><li>PHP</li>`,
+                    skills_cat2_title: "Tools",
+                    skills_list2: `<li>VTEX IO</li><li>OutSystems</li><li>Adobe AEM</li>`,
+                    skills_cat3_title: "Databases",
+                    skills_list3: `<li>SQL (Oracle, SQL Server, MySQL)</li><li>Azure Cosmos DB</li><li>MongoDB</li>`,
+                    skills_cat4_title: "Others",
+                    skills_list4: `<li>CA APM</li><li>ITIL® Foundation</li><li>Scrum Master I (PSM I)</li><li>GIT</li><li>GitHub</li><li>Azure DevOps</li><li>JIRA</li><li>Computer and network asset maintenance</li>`,
+                    education_title: "Academic Background",
+                    edu1_title: "Executive MBA in Information Technology Management",
+                    edu1_school: "Center for Informatics (CIN) - Federal University of Pernambuco (UFPE)",
+                    edu2_title: "Higher Education Course in Technology in Systems Analysis and Development",
+                    edu2_school: "UNIBRATEC – IBRATEC College of Technology",
+                    certifications_title: "Courses & Certifications",
+                    certs_major_title: "Main Certifications",
+                    cert1_title: "VTEX IO Developer",
+                    cert1_date: "Dec 2022",
+                    cert2_title: "Professional Scrum Master I",
+                    cert2_date: "Dec 2018",
+                    cert3_title: "ITIL® Foundation",
+                    cert3_date: "Dec 2016",
+                    cert_view: `View credential <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>`,
+                    certs_other_title: "Other Relevant Courses",
+                    certs_other_list: `<li>How to create enterprise ready applications using NestJS framework (06/2024)</li><li>Storytelling: business vision and personal development (07/2023)</li><li>Aligning IT with business: strategies and service design (06/2023)</li><li>HTML5 and CSS3: Your Web Pages and Boosting Your Pages (07/2017)</li><li>Responsive Web Design (07/2017)</li><li>MongoDB: Alternative to Traditional Relational Databases (05/2017)</li><li>GIT: Control and Share Your Code (04/2017)</li><li>SQLServer: Powerful Queries (03/2017)</li><li>HTTP: Understanding the Web (02/2017)</li><li>Visual Thinking as an Innovation Tool (02/2017)</li><li>Data Modeling and SQL in Oracle (12/2011)</li><li>Data Modeling PL/SQL in Oracle (01/2011)</li><li>Students to Business Program – S2B (11/2008)</li>`,
+                    languages_title: "Languages",
+                    lang1_name: "English:",
+                    lang1_level: "Advanced (C2)",
+                    lang2_name: "Spanish:",
+                    lang2_level: "Basic",
+                    volunteer_title: "Volunteer Work",
+                    vol_org: "IPETI – Institute for Research and Studies of the Third Age",
+                    vol_date: "Jan 2008 - Dec 2009",
+                    vol_desc: "Development of a website and support software for lending books and movies.",
+                    contact_title: "Contact",
+                    contact_text: "I am always open to evaluating new opportunities and collaborations."
+                }
+            };
+
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang;
+                document.title = translations[lang].title;
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    if (translations[lang][key] !== undefined) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+                document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(`lang-${lang}`).classList.add('active');
+                document.getElementById(`lang-${lang}-mobile`).classList.add('active');
+            };
+
+            const langButtons = ['lang-pt', 'lang-en', 'lang-pt-mobile', 'lang-en-mobile'];
+            langButtons.forEach(id => {
+                document.getElementById(id).addEventListener('click', (e) => {
+                    const lang = e.target.id.includes('en') ? 'en' : 'pt';
+                    setLanguage(lang);
+                });
+            });
+
+            // Set default language to English
+            setLanguage('en');
+
+            // Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Phone number interaction
+            const phoneBtn = document.getElementById('phone-btn');
+            phoneBtn.addEventListener('click', () => {
+                const contactIcons = document.getElementById('contact-icons');
+                const existingPhoneNumber = document.getElementById('phone-number');
+                
+                if (existingPhoneNumber) {
+                    existingPhoneNumber.remove();
+                } else {
+                    const phoneSpan = document.createElement('span');
+                    phoneSpan.id = 'phone-number';
+                    phoneSpan.className = 'text-accent text-2xl font-semibold ml-4';
+                    phoneSpan.textContent = '+55 83 99818-1601';
+                    contactIcons.appendChild(phoneSpan);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
